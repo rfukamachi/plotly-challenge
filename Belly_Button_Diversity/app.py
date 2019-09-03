@@ -89,7 +89,7 @@ def samples(sample):
     # only keep rows with values above 1
     sample_data = df.loc[df[sample] > 1, ["otu_id", "otu_label", sample]]
 
-    # Sort by sample
+    # Sort by sample by descending sample values:
     sample_data.sort_values(by=sample, ascending=False, inplace=True)
 
     # Format the data to send as json

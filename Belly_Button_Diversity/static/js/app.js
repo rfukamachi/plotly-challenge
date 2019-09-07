@@ -24,16 +24,15 @@ function buildMetadata(sample) {
 
   //d3.json returns jsonified version of the sample metadata:
   d3.json(`/metadata/${sample}`)
+
     //once retrieved, build the table:
     .then(function(sampleMetaData) {
       
       Object.entries(sampleMetaData).forEach(([key, value]) => {
         // console.log(key, value);
-        let trow = metaDataPanel.append('tr');
+        let trow = metaDataPanel.append('p');
         trow.text(`${key}: ${value}`);
 
-        let blankrow = metaDataPanel.append('tr');
-        blankrow.text("-");
       });
 
       // BONUS: Build the Gauge Chart
@@ -63,7 +62,7 @@ function buildMetadata(sample) {
         }
       };
 
-      Plotly.newPlot("gauge", gaugeData, gaugeLayout);
+      // Plotly.newPlot("gauge", gaugeData, gaugeLayout);
 
     });
 }
@@ -106,15 +105,8 @@ function updatePieChart(sampleData) {
   let pieData = [{
     type: "pie",
     values: sampleValues,
-    labels: otuIDs
-    //RF: hover text is messing up the labels:
-    // text: otuLabels
-    // options: {
-    //   tooltips: {
-    //     mode: otuLabels,
-    //     text: otuLabels
-    //   }
-    // }
+    labels: otuIDs,
+    hovertext: otuLabels
   }];
 
   //mus be in a dictionary:
@@ -141,7 +133,7 @@ function updateBubbleChart(sampleData) {
   let bubbleTraceData = [{
     x: otuIDs,
     y: sampleValues,
-    text: otuLabels,  //hover labels
+    hovertext: otuLabels,  
     mode: 'markers',
     marker: {
       size: sampleValues,

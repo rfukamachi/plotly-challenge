@@ -35,35 +35,6 @@ function buildMetadata(sample) {
 
       });
 
-      // BONUS: Build the Gauge Chart
-      let weeklyScrubs = 0;
-      weeklyScrubs = sampleMetaData.WFREQ;
-      console.log(weeklyScrubs);
-
-      let gaugeData = [{
-        domain: {
-          x: [0,1],
-          y: [0,1]
-        },
-        value: weeklyScrubs,
-        title: {
-          text: "Scrubs per Week"
-        },
-        type: "indicator",
-        mode: "gauge"
-      }];
-
-      let gaugeLayout = {
-        height: 300,
-        width: 300,
-        margin: {
-          t: 0, b: 0,
-          r: 0, l: 0
-        }
-      };
-
-      // Plotly.newPlot("gauge", gaugeData, gaugeLayout);
-
     });
 }
 

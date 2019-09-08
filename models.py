@@ -6,7 +6,7 @@ class sample_metadata(db.Model):
     sample = db.Column(db.Integer, primary_key=True)
     ETHNICITY = db.Column(db.String)
     GENDER = db.Column(db.String)
-    AGE = db.Column(db.Integer)
+    AGE = db.Column(db.Real)
     LOCATION = db.Column(db.String)
     BBTYPE = db.Column(db.String)
     WFREQ = db.Column(db.Integer)

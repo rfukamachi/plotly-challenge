@@ -23,7 +23,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL', '') or "s
 
 db = SQLAlchemy(app)
 
-from models import sample_metadata, samples
+# from models import sample_metadata, samples
 
 # reflect an existing database into a new model
 Base = automap_base()
